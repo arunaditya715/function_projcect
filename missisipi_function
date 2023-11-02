@@ -1,0 +1,26 @@
+def most_frequent(s):
+    # Create an empty dictionary to store letter frequencies
+    letter_count = {}
+    
+    # Remove spaces and convert the input string to lowercase
+    s = s.replace(" ", "").lower()
+    
+    # Iterate through the string and count the frequencies of each letter
+    for letter in s:
+        if letter.isalpha():
+            if letter in letter_count:
+                letter_count[letter] += 1
+            else:
+                letter_count[letter] = 1
+    
+    # Sort the dictionary items by frequency in descending order
+    sorted_letter_count = sorted(letter_count.items(), key=lambda x: x[1], reverse=True)
+    
+    # Print the sorted frequencies
+    for letter, count in sorted_letter_count:
+        print(f"{letter} = {count:02d}", end=" ")
+    print()
+
+# Test the function
+input_string = input("Please enter a string: ")
+most_frequent(input_string)
